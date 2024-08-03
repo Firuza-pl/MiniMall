@@ -33,7 +33,7 @@ namespace Yasamall.DAL
                 {
                     Firstname = "Admin",
                     Lastname = "Admin",
-                    Email = "ElchinSh@code.edu.az",
+                    Email = "xxxx",
                     UserName = "admin",
                 };
 
