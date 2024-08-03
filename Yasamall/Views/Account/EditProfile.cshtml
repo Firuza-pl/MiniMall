@@ -1,0 +1,113 @@
+﻿
+@{
+    @model ChangeProfileViewModel
+    ViewData["Title"] = "MyProfile";
+}
+
+<section id="userProfileEdit" style="padding:60px 0;">
+    
+    <form method="post" class="mt-4" enctype="multipart/form-data">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-7">
+                   
+                    <div class="form-group">
+                        <label asp-for="Firstname">Ad</label>
+                        <input asp-for="Firstname" class="form-control" />
+                        <span asp-validation-for="Firstname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Lastname">Soyad</label>
+                        <input asp-for="Lastname" class="form-control" />
+                        <span asp-validation-for="Lastname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Username">Username</label>
+                        <input asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Phone">Telefon</label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CurrentPassword">Köhnə şifrə</label>
+                        <input asp-for="CurrentPassword" class="form-control" />
+                        <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password">Yeni şifrə</label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword">Şifrəni təsdiqlə</label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 mt-3">
+                  
+                    @if (Model.PhotoURL == null)
+                    {
+                    <div class="form-group">
+                        <label asp-for="Photo" class="d-block text-right">Profil Şəklini dəyişin</label>
+                        <div class="photo-convert">
+                            <img src="~/img/Person-icon.png" />
+                            <div class="uploadImage custom-upload-image">
+                                <i class="fal fa-camera-alt"></i>
+                            </div>
+                        </div>
+
+                        <input id="uploadInput" asp-for="Photo" accept="image/*" class="form-control" />
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                        <p class="file-view">Şəkil seçildi.</p>
+
+                    </div>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label asp-for="Photo" class="d-block text-right">Profil Şəklini dəyişin</label>
+                            <div class="photo-convert">
+                                <img src="~/img/@Model.PhotoURL" />
+                                <div class="uploadImage custom-upload-image">
+                                    <i class="fal fa-camera-alt"></i>
+                                </div>
+                            </div>
+
+                            <input id="uploadInput" asp-for="Photo" accept="image/*" class="form-control" />
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                            <p class="file-view">Şəkil seçildi.</p>
+
+                        </div>
+                    }
+                </div>
+                <div class="col-12">
+                    <input type="submit" class="btn-create" value="Dəyiş" />
+                </div>
+            </div>
+        </div>
+</form>
+           
+</section>
+
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
